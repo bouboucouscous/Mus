@@ -26,7 +26,7 @@ class PairesTest {
   }
 
   @Test
-  void ne_doit_pas_se_derouler_si_un_des_joueurs_n_a_pas_de_paires() {
+  void ne_doit_pas_se_derouler_si_un_des_equipe_n_a_pas_de_paires() {
     Opposants opposants = new Opposants(
       new Equipe( unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE)),
                   unJoueurAvec(main(Carte.VALET_PIECE, Carte.SIX_PIECE, Carte.QUATRE_BATON, Carte.AS_PIECE))),

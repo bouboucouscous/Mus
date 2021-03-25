@@ -16,9 +16,8 @@ public class Paires extends Phase {
   @Override
   protected Joueur meilleurParmi(Opposants opposants) {
 
-    com.montaury.mus.jeu.carte.paires.Paires meilleurPaireEquie1;
+    com.montaury.mus.jeu.carte.paires.Paires meilleurPaireEquipe1;
     com.montaury.mus.jeu.carte.paires.Paires meilleurPaireEquie2;
-    opposants.joueur1().main().getPaires();
 
     Joueur meilleurJoueurEquipe1 = opposants.joueur1();
     Joueur meilleurJoueurEquipe2 = opposants.joueur4();
@@ -27,21 +26,21 @@ public class Paires extends Phase {
     {
       //recup le meilleur
       if (opposants.joueur1().main().getPaires().estMeilleureOuEgaleA(opposants.joueur2().main().getPaires())){
-        meilleurPaireEquie1=opposants.joueur1().main().getPaires();
+        meilleurPaireEquipe1=opposants.joueur1().main().getPaires();
       }else {
-        meilleurPaireEquie1=opposants.joueur2().main().getPaires();
+        meilleurPaireEquipe1=opposants.joueur2().main().getPaires();
         meilleurJoueurEquipe1=opposants.joueur2();
       }
     }
     else if(peutParticiper(opposants.joueur1()))
     {
       //recup paire esku
-      meilleurPaireEquie1 =opposants.joueur1().main().getPaires() ;
+      meilleurPaireEquipe1 =opposants.joueur1().main().getPaires() ;
     }
     else
     {
       //recup paire j2e1
-      meilleurPaireEquie1 =opposants.joueur2().main().getPaires() ;
+      meilleurPaireEquipe1 =opposants.joueur2().main().getPaires() ;
       meilleurJoueurEquipe1=opposants.joueur2();
     }
 
@@ -67,7 +66,7 @@ public class Paires extends Phase {
       meilleurJoueurEquipe2=opposants.joueur3();
     }
 
-    return meilleurPaireEquie1.estMeilleureOuEgaleA(meilleurPaireEquie2) ? meilleurJoueurEquipe1 : meilleurJoueurEquipe2;
+    return meilleurPaireEquipe1.estMeilleureOuEgaleA(meilleurPaireEquie2) ? meilleurJoueurEquipe1 : meilleurJoueurEquipe2;
   }
 
   @Override

@@ -75,7 +75,7 @@ class GrandTest {
   }
 
   @Test
-  void devrait_faire_gagner_le_joueur_esku_si_les_quatre_mains_sont_egales() {
+  void devrait_faire_gagner_le_joueur_esku_si_les_deux_mains_sont_egales() {
     Joueur joueur1 = unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE));
     Joueur joueur2 = unJoueurAvec(main(Carte.AS_EPEE, Carte.AS_EPEE, Carte.AS_EPEE, Carte.AS_EPEE));
     Joueur joueur3 = unJoueurAvec(main(Carte.AS_EPEE, Carte.AS_EPEE, Carte.AS_EPEE, Carte.AS_EPEE));
