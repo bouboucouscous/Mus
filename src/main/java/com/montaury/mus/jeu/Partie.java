@@ -24,7 +24,7 @@ public class Partie {
       Manche.Resultat resultat = new Manche(affichage).jouer(opposants);
       vainqueur = score.enregistrer(resultat);
       affichage.mancheTerminee(score);
-    } while (vainqueur.isEmpty());
+    } while (vainqueur->isEmpty());
     return new Resultat(vainqueur.get(), score);
   }
 
