@@ -20,8 +20,8 @@ public class Grand extends Phase {
     Joueur joueur3 = opposants.joueur2();
     Joueur joueur2 = opposants.joueur3();
     Joueur joueurZaku = opposants.joueur4();
-    Joueur joueurEquipe1Choisi = null;
-    Joueur joueurEquipe2Choisi = null;
+    Joueur meilleurJoueurEquipe1Choisi = null;
+    Joueur meilleurJoueurEquipe2Choisi = null;
     Joueur joueurFinal=joueurEsku;
 
 
@@ -30,18 +30,18 @@ public class Grand extends Phase {
     List<Carte> cartesjoueur3 = joueur3.main().cartesDuPlusGrandAuPlusPetit();
     List<Carte> cartesJoueurZaku = joueurZaku.main().cartesDuPlusGrandAuPlusPetit();
 
-    List<Carte> cartesjoueurPlusGrandEquipe1 = null;
-    List<Carte> cartesjoueurPlusGrandEquipe2 = null;
+    List<Carte> cartesMeilleurJoueurEquipe1Choisi = null;
+    List<Carte> cartesMeilleurJoueurEquipe2Choisi = null;
 
     for (int i = 0; i < Main.TAILLE; i++) {
       ValeurCarte.Comparaison compareEquipe1 = cartesJoueurEsku.get(i).comparerAvec(cartesjoueur3.get(i));
       if (compareEquipe1 == PLUS_GRANDE) {
-        cartesjoueurPlusGrandEquipe1 = cartesJoueurEsku;
-        joueurEquipe1Choisi = joueurEsku;
+        cartesMeilleurJoueurEquipe1Choisi = cartesJoueurEsku;
+        meilleurJoueurEquipe1Choisi = joueurEsku;
         break;
       } else if (compareEquipe1 == PLUS_PETITE) {
-        cartesjoueurPlusGrandEquipe1 = cartesjoueur3;
-        joueurEquipe1Choisi = joueur3;
+        cartesMeilleurJoueurEquipe1Choisi = cartesjoueur3;
+        meilleurJoueurEquipe1Choisi = joueur3;
         break;
       }
     }
@@ -49,24 +49,23 @@ public class Grand extends Phase {
     for (int i = 0; i < Main.TAILLE; i++) {
       ValeurCarte.Comparaison compareEquipe2 = cartesjoueur2.get(i).comparerAvec(cartesJoueurZaku.get(i));
       if (compareEquipe2 == PLUS_GRANDE) {
-        cartesjoueurPlusGrandEquipe2 = cartesjoueur2;
-        joueurEquipe2Choisi = joueur2;
+        cartesMeilleurJoueurEquipe2Choisi = cartesjoueur2;
+        meilleurJoueurEquipe2Choisi = joueur2;
         break;
       } else if (compareEquipe2 == PLUS_PETITE) {
-        cartesjoueurPlusGrandEquipe2 = cartesJoueurZaku;
-        joueurEquipe2Choisi = joueurZaku;
+        cartesMeilleurJoueurEquipe2Choisi = cartesJoueurZaku;
+        meilleurJoueurEquipe2Choisi = joueurZaku;
         break;
       }
     }
     for (int i = 0; i < Main.TAILLE; i++) {
-      ValeurCarte.Comparaison compareEntreEquipe = cartesjoueurPlusGrandEquipe1.get(i).comparerAvec(cartesjoueurPlusGrandEquipe2.get(i));
+      ValeurCarte.Comparaison compareEntreEquipe = cartesMeilleurJoueurEquipe1Choisi.get(i).comparerAvec(cartesMeilleurJoueurEquipe2Choisi.get(i));
       if (compareEntreEquipe == PLUS_GRANDE ) {
-        joueurFinal= joueurEquipe1Choisi;
+        joueurFinal= meilleurJoueurEquipe1Choisi;
         break;
       } else if (compareEntreEquipe == PLUS_PETITE) {
-        joueurFinal= joueurEquipe2Choisi;
+        joueurFinal= meilleurJoueurEquipe2Choisi;
         break;
-
       }
     }
     return joueurFinal;
